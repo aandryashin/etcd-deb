@@ -1,0 +1,3 @@
+build/etcd usr/local/bin/
+build/etcdctl usr/local/bin/
+conf/config.yml etc/etcd/

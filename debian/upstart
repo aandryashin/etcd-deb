@@ -1,0 +1,15 @@
+description "etcd distributed key-value store"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+setuid etcd
+
+limit nofile 8196 8196
+
+respawn
+respawn limit 10 5
+
+script
+exec /usr/local/bin/etcd --data-dir=/var/lib/etcd --config-file=/etc/etcd/config.yml >>/var/log/etcd/etcd.log 2>&1
+end script

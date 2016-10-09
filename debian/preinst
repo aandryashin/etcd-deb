@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+case "$1" in
+	install)
+		adduser --system  --ingroup nogroup --disabled-password \
+		--shell /bin/false etcd
+		install -d 755 -o etcd /var/log/etcd
+		install -d 755 -o etcd /var/lib/etcd
+	;;
+
+	upgrade)
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "preinst called with unknown argument \`$1'" >&2 || exit 1
+	;;
+esac
+exit 0
+

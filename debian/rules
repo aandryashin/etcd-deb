@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+ETCD_VER=v3.0.12
+DOWNLOAD_URL=https://github.com/coreos/etcd/releases/download
+
+build:
+	mkdir build
+	curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+	tar -C build --strip-components=1 -xzf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+
+clean::
+	rm /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz || true
+	rm -Rf build || true

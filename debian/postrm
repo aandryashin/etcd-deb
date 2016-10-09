@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+case "$1" in
+	purge)
+		userdel -r etcd
+		rm -rf /var/log/etcd
+		rm -rf /var/lib/etcd
+	;;
+esac
+exit 0

@@ -1,0 +1,5 @@
+etcd (3.0.12) UNRELEASED; urgency=low
+
+  * Initial release.
+
+ -- aandryashin <aandryashin@gmail.com>  Sun, 09 Oct 2016 13:04:18 +0300
